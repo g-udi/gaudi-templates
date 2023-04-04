@@ -96,7 +96,4 @@ export brewList=(
       "traefik::A reverse proxy / load balancer that's easy, dynamic, automatic, fast, full-featured, open source, production proven, provides metrics, and integrates with every major cluster technologies https://traefik.io/"
       "irssi::IRC built-in. Multi-protocol friendly for module authors https://irssi.org/"
       "httpie::HTTPie—aitch-tee-tee-pie—is a command line HTTP client with an intuitive UI, JSON support, syntax highlighting, wget-like downloads, plugins, and more https://httpie.org/"
-  
-  # Misc.
-  "font-hack-nerd-font::Iconic font aggregator, collection, and patcher"
 )
