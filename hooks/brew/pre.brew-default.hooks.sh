@@ -5,6 +5,7 @@
 echo ""
 
 # Check if we have any taps that we need to "tap" ;)
+echo "=====> $GAUDI_TEMPLATES_LOCATION"
 find "$GAUDI_TEMPLATES_LOCATION" -type f -iname "default.tap.list.sh" | while read -r TAP; do
     . "$TAP"
     for _tap in "${brewTapList[@]}";
