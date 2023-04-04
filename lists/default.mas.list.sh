@@ -13,13 +13,9 @@ export masList=(
     ## Security
 
     "727593140::VPN Unlimited::An ultimate VPN service that offers unlimited Internet connection https://www.keepsolid.com/"
-    "1333542190::1Password 7::A password manager, digital vault, random password generator, form filler and secure digital wallet https://1password.com/"
     
     ## Productivity
 
-    "975937182::Fantastical::Fantastical is the the powerful yet friendly! calendar and reminders app https://flexibits.com/"
     "445189367::PopClip::PopClip appears when you select text with your mouse on your Mac. Instantly copy & paste, and access actions like search, spelling, dictionary and over 100 more   https://pilotmoon.com/popclip/"
-    "803453959::Slack::Fewer meetings, less internal email, all your tools integrated https://slack.com"
-    "1475897096::Jira::Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management"
 
 )
