@@ -19,13 +19,12 @@ export caskList=(
 	## Development
 
 	"google-cloud-sdk::The Cloud SDK is a set of tools for Cloud Platform. It contains gcloud, gsutil, and bq, which you can use to access Google Compute Engine https://cloud.google.com/sdk/"
-    "iterm2::iTerm2 is a replacement for Terminal and the successor to iTerm https://www.iterm2.com/"
-    "hyper::A terminal built on web technologies https://hyper.is"
-    "postman::Postman helps you be more efficient while working with APIs. Using Postman, you can construct complex HTTP requests quickly, organize them in collections,etc. https://www.getpostman.com/"
-    "studio-3t::Studio 3T, the most powerful MongoDB GUI and IDE available https://studio3t.com/"
+	"iterm2::iTerm2 is a replacement for Terminal and the successor to iTerm https://www.iterm2.com/"
+	"hyper::A terminal built on web technologies https://hyper.is"
+	"postman::Postman helps you be more efficient while working with APIs. Using Postman, you can construct complex HTTP requests quickly, organize them in collections,etc. https://www.getpostman.com/"
+	"studio-3t::Studio 3T, the most powerful MongoDB GUI and IDE available https://studio3t.com/"
 	"docker::Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud https://www.docker.com/"
 	"dash::Dash is an API Documentation Browser and Code Snippet Manager. ... Store snippets of code; Easily reuse snippets; Expand snippets in any app https://kapeli.com/dash"
-    "now::Realtime Global Deployments https://zeit.co/now"
 	"gitkraken::THE legendary Git GUI client https://www.gitkraken.com/"
 	"openrefine::OpenRefine (formerly Google Refine) is a powerful tool for working with messy data: cleaning it; transforming it from one format into another http://openrefine.org/"
 	"ngrok::ngrok provides a real-time web UI where you can introspect all HTTP traffic running over your tunnels https://ngrok.com/"
@@ -38,12 +37,12 @@ export caskList=(
 	## IDE and editors
 
 	"jetbrains-toolbox::JetBrains Toolbox refers to the list of JetBrains desktop developer tools that are available under a monthly or yearly subscription plan"
-    "visual-studio-code::Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring https://code.visualstudio.com/ "
+	"visual-studio-code::Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring https://code.visualstudio.com/ "
 	"rstudio::RStudio is an integrated development environment for R, a programming language for statistical computing and graphics"
 	
 	## Entertainment
 
-    "spotify::Spotify is a digital music service that gives you access to millions of songs https://www.spotify.com/"
+	"spotify::Spotify is a digital music service that gives you access to millions of songs https://www.spotify.com/"
 	"steam::Steam is a digital distribution platform for video games developed by Valve Corporation, which offers digital rights management, multiplayer servers, video streaming, and social networking services https://store.steampowered.com/"
 
 	## Productivity
@@ -74,10 +73,10 @@ export caskList=(
 	## Utilities
   
 	"betterzip::BetterZip: the most advanced zip and rar archiver for file compression, encryption. BetterZip makes it easy to work with zip, rar, 7-zip, tar, and xz https://macitbetter.com/"
-    "launchrocket::LaunchRocket. A Mac PreferencePane for managing services with launchd https://github.com/jimbojsb/launchrocket"
+	"launchrocket::LaunchRocket. A Mac PreferencePane for managing services with launchd https://github.com/jimbojsb/launchrocket"
 	"alfred::Alfred is a productivity application for Mac OS X, which boosts your efficiency with hotkeys, keywords and text expansion https://www.alfredapp.com/"
-    "bettertouchtool::BetterTouchTool is a great, feature packed app that allows you to customize various input devices on your Mac https://folivora.ai/"
-    "ubersicht::Übersicht lets you run system commands and display their output on your desktop in little containers http://tracesof.net/uebersicht/"
+	"bettertouchtool::BetterTouchTool is a great, feature packed app that allows you to customize various input devices on your Mac https://folivora.ai/"
+	"ubersicht::Übersicht lets you run system commands and display their output on your desktop in little containers http://tracesof.net/uebersicht/"
 	"hazel::Hazel watches whatever folders you tell it to, automatically organizing your files according to the rules you create https://www.noodlesoft.com/"
 	"setapp::Setapp membership gives you an all-access pass to curated Mac and iOS apps"
 	"the-unarchiver::The Unarchiver is a proprietary freeware data decompression utility, which supports more formats than Archive Utility, the built-in archive unpacker program in macOS. It can also handle filenames in various character encodings, created using operating system versions that use those character encodings"
