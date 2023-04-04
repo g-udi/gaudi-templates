@@ -8,11 +8,12 @@ export caskList=(
 
 	## Internet Apps
 
-  "google-chrome::Google Chrome is a freeware web browser developed by Google https://www.google.com/intl/en_uk/chrome/"
-  "tor-browser::The Tor (the onion routing) browser is a web browser designed for anonymous web surfing and protection against traffic analysis."
+  	"google-chrome::Google Chrome is a freeware web browser developed by Google https://www.google.com/intl/en_uk/chrome/"
+	"tor-browser::The Tor (the onion routing) browser is a web browser designed for anonymous web surfing and protection against traffic analysis."
 	
 	## Security
 
+	"1password::A password manager, digital vault, random password generator, form filler and secure digital wallet https://1password.com/"
 	"cleanmymac::The ultimate cleaner for your Mac https://macpaw.com"
 	"gpg-suite::Everything you need to get started with secure communication and encrypting files in one simple package"
 
@@ -47,12 +48,14 @@ export caskList=(
 
 	## Productivity
 	
+	"fantastical::Fantastical is the the powerful yet friendly! calendar and reminders app https://flexibits.com/"
 	"raycast::Raycast is a blazingly fast, totally extendable launcher. It lets you complete tasks, calculate, share common links, and much more"
 	"karabiner-elements::A powerful and stable keyboard customizer for macOS"
 	"numi::Beautiful calculator for Mac that blends math with text. Currency, units, time zones, numeral systems, variables, export, notification widget"
 
 	## Messaging and Communication
 
+	"Slack::Fewer meetings, less internal email, all your tools integrated https://slack.com"
 	"zoom::Zoom Delivers the Best Experience for the Best Price. Sign Up Free Today! Mobile Screen Sharing. HD Screen Sharing. Video Collaboration. Unbeatable Price. Superior Audio Quality. Easy To Use https://zoom.us/"
 	"Telegram::Telegram is a freeware, cross-platform, cloud-based instant messaging service"
 		
