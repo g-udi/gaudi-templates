@@ -88,8 +88,8 @@ export brewList=(
   "fzf::A command-line fuzzy finder https://github.com/junegunn/fzf"
   "peco::Simplistic interactive filtering tool https://github.com/peco/peco"
   "calc::Launch calc and you can start typing equations https://github.com/lcn2/calc"
-  "yabai::A tiling window manager for macOS based on binary space partitioning https://github.com/koekeishiya/yabai"
-  "skhd::Simple hotkey daemon for macOS https://github.com/koekeishiya/skhd"
+  "koekeishiya/formulae/yabai::A tiling window manager for macOS based on binary space partitioning https://github.com/koekeishiya/yabai"
+  "koekeishiya/formulae/skhd::Simple hotkey daemon for macOS https://github.com/koekeishiya/skhd"
 
       ## Network
       "nmap::Port scanning utility for large networks https://nmap.org/"
