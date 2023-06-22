@@ -84,7 +84,6 @@ export brewList=(
   "the_silver_searcher::A code-searching tool similar to ack, but faster https://github.com/ggreer/the_silver_searcher"
   "qrencode::QR Code generation https://fukuchi.org/works/qrencode/index.html.en"
   "watchman::Watchman exists to watch files and record when they change https://facebook.github.io/watchman/"
-  "archey::An archey script clone for OS X http://obihann.github.io/archey-osx"
   "fzf::A command-line fuzzy finder https://github.com/junegunn/fzf"
   "peco::Simplistic interactive filtering tool https://github.com/peco/peco"
   "calc::Launch calc and you can start typing equations https://github.com/lcn2/calc"
