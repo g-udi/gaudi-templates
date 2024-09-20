@@ -90,6 +90,7 @@ export brewList=(
   "calc::Launch calc and you can start typing equations https://github.com/lcn2/calc"
   "koekeishiya/formulae/yabai::A tiling window manager for macOS based on binary space partitioning https://github.com/koekeishiya/yabai"
   "koekeishiya/formulae/skhd::Simple hotkey daemon for macOS https://github.com/koekeishiya/skhd"
+  "homebrew/cask-fonts/font-hack-nerd-font::Nerd Fonts is a project that patches developer targeted fonts with a high number of glyphs (icons)"
 
       ## Network
       "nmap::Port scanning utility for large networks https://nmap.org/"

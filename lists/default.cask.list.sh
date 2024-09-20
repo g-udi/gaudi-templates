@@ -84,7 +84,6 @@ export caskList=(
 	"setapp::Setapp membership gives you an all-access pass to curated Mac and iOS apps"
 	"the-unarchiver::The Unarchiver is a proprietary freeware data decompression utility, which supports more formats than Archive Utility, the built-in archive unpacker program in macOS. It can also handle filenames in various character encodings, created using operating system versions that use those character encodings"
 	"hammerspoon::This is a tool for powerful automation of macOS. At its core, Hammerspoon is just a bridge between the operating system and a Lua scripting engine. What gives Hammerspoon its power is a set of extensions that expose specific pieces of system functionality, to the user"
-	"homebrew/cask-fonts/font-hack-nerd-font::Nerd Fonts is a project that patches developer targeted fonts with a high number of glyphs (icons)"
 	
 		## QuickLook plugins
 
