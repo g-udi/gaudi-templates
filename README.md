@@ -133,3 +133,5 @@ gaudi check . --online
 ```
 
 `gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it on every pull request and push; require its `templates check` check on `master` to block merging broken templates.
+
+Lists also exist for Arch (`<name>.pacman.list.sh`) and openSUSE (`<name>.zypper.list.sh`), and configs can target `arch` and `opensuse`.

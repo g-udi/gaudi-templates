@@ -9,5 +9,3 @@ brew "awscli"
 brew "glances"
 # Pylint is a source code, bug and quality checker for the Python programming language https://www.pylint.org/
 uv "pylint"
-# The swiss army knife of the command line https://github.com/Russell91/pythonpy
-uv "pythonpy"

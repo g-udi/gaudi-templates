@@ -14,8 +14,8 @@ done < <(find "$_asdf_templates" -type f \( -name ".default-gems" -o -name ".def
 
 if [[ -d "$HOME/.gaudi-shell" ]]; then
     printf "%s\n" "gaudi-shell detected. Enable the asdf plugin and completion:" \
-        "    gaudi enable plugin asdf" \
-        "    gaudi enable completion asdf"
+        "    gshell enable plugin asdf" \
+        "    gshell enable completion asdf"
 else
     printf "%b\n" "${YELLOW:-}Add the asdf shims to your PATH in your shell profile:${NC:-}"
     # shellcheck disable=SC2016
