@@ -19,7 +19,7 @@ Setting up a new machine can be a tedious, time-consuming process. Gaudi solves 
 
 ## Getting Started
 
-To get started with Gaudi, follow the instructions in the [Gaudi README](https://github.com/g-udi/gaudi/blob/master/README.md).
+To get started with Gaudi, follow the instructions in the [Gaudi README](https://github.com/g-udi/gaudi/blob/main/README.md).
 
 # The Templates
 
@@ -145,4 +145,4 @@ gaudi check .
 gaudi check . --online
 ```
 
-`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it, and [ShellCheck](https://www.shellcheck.net/) on the hooks, on every pull request, in the merge queue and on every push to `master`; require its `templates check` check on `master` to block merging broken templates.
+`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it, and [ShellCheck](https://www.shellcheck.net/) on the hooks, on every pull request, in the merge queue and on every push to `main`; require its `templates check` check on `main` to block merging broken templates.
