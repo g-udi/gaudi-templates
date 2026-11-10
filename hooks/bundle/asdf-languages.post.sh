@@ -12,10 +12,10 @@ while IFS= read -r _asdf_defaults; do
     cp "$_asdf_defaults" "$HOME/"
 done < <(find "$_asdf_templates" -type f \( -name ".default-gems" -o -name ".default-npm-packages" \))
 
-if [[ -d "$HOME/.gaudi_bash" ]]; then
-    printf "%s\n" "gaudi-bash detected. Enable the asdf plugin and completion:" \
-        "    gaudi-bash enable plugin asdf" \
-        "    gaudi-bash enable completion asdf"
+if [[ -d "$HOME/.gaudi-shell" ]]; then
+    printf "%s\n" "gaudi-shell detected. Enable the asdf plugin and completion:" \
+        "    gaudi enable plugin asdf" \
+        "    gaudi enable completion asdf"
 else
     printf "%b\n" "${YELLOW:-}Add the asdf shims to your PATH in your shell profile:${NC:-}"
     # shellcheck disable=SC2016

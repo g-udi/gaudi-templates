@@ -116,8 +116,6 @@ brew "grc"
 brew "jq"
 # Magnificent app which corrects your previous console command https://github.com/nvbn/thefuck
 brew "thefuck"
-# Instant terminal sharing https://tmate.io/
-brew "tmate"
 # Display directories as trees with optional color/HTML output http://mama.indstate.edu/users/ice/tree/
 brew "tree"
 # Awesome tmux-based terminal divider https://github.com/greymd/tmux-xpanes

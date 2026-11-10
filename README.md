@@ -116,3 +116,20 @@ function _command {
  - `_info`: A short description of the config, this is used to describe the config in the logs.
  - `_command`: The command to execute, this is the command to execute to configure the machine.
 
+
+### Dotfiles
+
+`dotfiles.list` names the files and directories `gaudi backup` copies, one per line, relative to the home directory. Files placed under `dotfiles/` at the top of the repository are restored by `gaudi setup` with the same layout. Do not list secrets while the repository is public.
+
+### Other package managers
+
+Besides Brewfiles, lists are supported for `apt` (Debian/Ubuntu), `dnf` (Fedora) and `gem`: `<name>.apt.list.sh`, `<name>.dnf.list.sh`, `<name>.gem.list.sh`.
+
+## Checking the templates
+
+```sh
+gaudi check .
+gaudi check . --online
+```
+
+`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it on every pull request and push; require its `templates check` check on `master` to block merging broken templates.
