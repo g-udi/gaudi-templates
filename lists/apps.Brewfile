@@ -1,0 +1,125 @@
+# @Name: Applications
+# @Description: Desktop applications installed as Homebrew casks
+
+# Link casks in /Applications rather than ~/Applications
+cask_args appdir: "/Applications"
+
+# --- Internet Apps ---
+# Google Chrome is a freeware web browser developed by Google https://www.google.com/intl/en_uk/chrome/
+cask "google-chrome"
+# The Tor (the onion routing) browser is a web browser designed for anonymous web surfing and protection against traffic analysis.
+cask "tor-browser"
+
+# --- Security ---
+# A password manager, digital vault, random password generator, form filler and secure digital wallet https://1password.com/
+cask "1password"
+# The ultimate cleaner for your Mac https://macpaw.com
+cask "cleanmymac"
+# Everything you need to get started with secure communication and encrypting files in one simple package
+cask "gpg-suite"
+
+# --- Development ---
+# The Cloud SDK is a set of tools for Cloud Platform. It contains gcloud, gsutil, and bq, which you can use to access Google Compute Engine https://cloud.google.com/sdk/
+cask "gcloud-cli"
+# iTerm2 is a replacement for Terminal and the successor to iTerm https://www.iterm2.com/
+cask "iterm2"
+# A terminal built on web technologies https://hyper.is
+cask "hyper"
+# Postman helps you be more efficient while working with APIs. Using Postman, you can construct complex HTTP requests quickly, organize them in collections,etc. https://www.getpostman.com/
+cask "postman"
+# Studio 3T, the most powerful MongoDB GUI and IDE available https://studio3t.com/
+cask "studio-3t"
+# Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud https://www.docker.com/
+cask "docker-desktop"
+# Dash is an API Documentation Browser and Code Snippet Manager. ... Store snippets of code; Easily reuse snippets; Expand snippets in any app https://kapeli.com/dash
+cask "dash"
+# THE legendary Git GUI client https://www.gitkraken.com/
+cask "gitkraken"
+# OpenRefine (formerly Google Refine) is a powerful tool for working with messy data: cleaning it; transforming it from one format into another http://openrefine.org/
+cask "openrefine"
+# ngrok provides a real-time web UI where you can introspect all HTTP traffic running over your tunnels https://ngrok.com/
+cask "ngrok"
+# The fast, feature-rich, GPU based terminal emulator. Fast. Offloads rendering to the GPU for lower system load
+cask "kitty"
+
+# --- Design ---
+# A better way to design. Design, prototype, and gather feedback all in one place with Figma https://figma.com/
+cask "figma"
+
+# --- IDE and editors ---
+# JetBrains Toolbox refers to the list of JetBrains desktop developer tools that are available under a monthly or yearly subscription plan
+cask "jetbrains-toolbox"
+# Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring https://code.visualstudio.com/
+cask "visual-studio-code"
+# RStudio is an integrated development environment for R, a programming language for statistical computing and graphics
+cask "rstudio"
+
+# --- Entertainment ---
+# Spotify is a digital music service that gives you access to millions of songs https://www.spotify.com/
+cask "spotify"
+# Steam is a digital distribution platform for video games developed by Valve Corporation, which offers digital rights management, multiplayer servers, video streaming, and social networking services https://store.steampowered.com/
+cask "steam"
+
+# --- Productivity ---
+# Fantastical is the the powerful yet friendly! calendar and reminders app https://flexibits.com/
+cask "fantastical"
+# Raycast is a blazingly fast, totally extendable launcher. It lets you complete tasks, calculate, share common links, and much more
+cask "raycast"
+# A powerful and stable keyboard customizer for macOS
+cask "karabiner-elements"
+# Beautiful calculator for Mac that blends math with text. Currency, units, time zones, numeral systems, variables, export, notification widget
+cask "numi"
+
+# --- Messaging and Communication ---
+# Fewer meetings, less internal email, all your tools integrated https://slack.com
+cask "slack"
+# Zoom Delivers the Best Experience for the Best Price. Sign Up Free Today! Mobile Screen Sharing. HD Screen Sharing. Video Collaboration. Unbeatable Price. Superior Audio Quality. Easy To Use https://zoom.us/
+cask "zoom"
+# Telegram is a freeware, cross-platform, cloud-based instant messaging service
+cask "telegram"
+
+# --- Office/Notes ---
+# Microsoft Office is a family of client software offering MS Word, Excel, PowerPoint, etc. https://www.office.com
+cask "microsoft-office"
+# Zotero is a free, easy-to-use tool to help you collect, organize, cite, and share research. https://www.zotero.org/
+cask "zotero"
+# Notion is a note-taking and collaboration application with markdown support that also integrates tasks, wikis, and databases. The company describes the app as an all-in-one workspace for note-taking, project management and task management https://www.notion.so/
+cask "notion"
+# BibDesk is an open-source reference management software package for macOS, used to manage bibliographies and references when writing essays and articles. It can also be used to organize and maintain a library of documents in PDF format and other formats
+cask "bibdesk"
+# LaTeXiT is A graphical interface above a LaTeX engine. However, its large set of features is a reason to see it as an editor
+cask "latexit"
+# MacTeX is a free redistribution of TeX Live, a typesetting environment based on TeX. While TeX Live is designed to be cross-platform, MacTeX includes Mac-specific utilities and front-ends
+cask "mactex"
+
+# --- Menu and Sidebar applications ---
+# Bartender 3 lets you organize your menu bar icons, by hiding them, rearranging them, show hidden items with a click or keyboard shortcut and have icons show when they update https://www.macbartender.com/
+cask "bartender"
+
+# --- Utilities ---
+# BetterZip: the most advanced zip and rar archiver for file compression, encryption. BetterZip makes it easy to work with zip, rar, 7-zip, tar, and xz https://macitbetter.com/
+cask "betterzip"
+# Alfred is a productivity application for Mac OS X, which boosts your efficiency with hotkeys, keywords and text expansion https://www.alfredapp.com/
+cask "alfred"
+# BetterTouchTool is a great, feature packed app that allows you to customize various input devices on your Mac https://folivora.ai/
+cask "bettertouchtool"
+# Übersicht lets you run system commands and display their output on your desktop in little containers http://tracesof.net/uebersicht/
+cask "ubersicht"
+# Hazel watches whatever folders you tell it to, automatically organizing your files according to the rules you create https://www.noodlesoft.com/
+cask "hazel"
+# Setapp membership gives you an all-access pass to curated Mac and iOS apps
+cask "setapp"
+# The Unarchiver is a proprietary freeware data decompression utility, which supports more formats than Archive Utility, the built-in archive unpacker program in macOS. It can also handle filenames in various character encodings, created using operating system versions that use those character encodings
+cask "the-unarchiver"
+# This is a tool for powerful automation of macOS. At its core, Hammerspoon is just a bridge between the operating system and a Lua scripting engine. What gives Hammerspoon its power is a set of extensions that expose specific pieces of system functionality, to the user
+cask "hammerspoon"
+
+# --- QuickLook plugins ---
+# Preview iOS / macOS app and provision information https://github.com/ealeksandrov/ProvisionQL
+cask "provisionql"
+# Preview Markdown files https://github.com/toland/qlmarkdown
+cask "qlmarkdown"
+
+# --- Moved from formulae (now a cask) ---
+# SQL powered operating system instrumentation and analytics https://osquery.io/
+cask "osquery"

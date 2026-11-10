@@ -33,45 +33,72 @@ Files inside these folders are picked up automatically by Gaudi and executed dur
 
 ## Naming Conventions
 
-### Software Lists
- - Main lists that are picked up by the "first-class" installers `default.<SOFTWARETARGET>.list.sh` e.g. `default.brew.list.sh`
- - Custom lists `<ANY>.<SOFTWARETARGET>.list.sh` e.g. `development.brew.list.sh`
+### Software: Brewfiles
 
-The list file needs to export a variable with the name of the list, e.g. `export brewList=(...)`.
+Software is declared in [Brewfiles](https://docs.brew.sh/Brew-Bundle-and-Brewfile). Gaudi picks up every file named `Brewfile` or `<name>.Brewfile`, asks whether to install it, and runs `brew bundle install` on it.
 
-There are few additional attributes you can set on the list:
+One Brewfile can hold Homebrew taps, formulae and casks, Mac App Store apps, VS Code extensions, and npm, Go, Cargo and uv packages. Split them by purpose so each can be accepted or skipped on its own:
 
- - `@Name`: The name of the list, this is used to identify the list in the logs and in the hooks.
- - `@Description`: A short description of the list, this is used to describe the list in the logs.
- - `@List`: The name of the variable that contains the list, this is used to identify the list in the script.
+| File | Contents |
+| --- | --- |
+| `lists/core.Brewfile` | Command-line tools and libraries |
+| `lists/languages.Brewfile` | Language version managers |
+| `lists/apps.Brewfile` | Desktop applications (casks) |
+| `lists/appstore.Brewfile` | Mac App Store apps |
+| `lists/npm.Brewfile` | Global npm packages |
+| `lists/python.Brewfile` | Python tools, installed with [uv](https://docs.astral.sh/uv/) |
 
-The software list is an array of strings, where each string represents a software to install. Each string is in the following format:
+Two optional comment lines at the top name and describe the file in the prompts:
 
-`"<MODULE>@<VERSION>::<DESCRIPTION>"`
+```ruby
+# @Name: Core tools
+# @Description: Command-line tools and libraries installed with Homebrew
 
-The `<MODULE>` is the name of the module to install, this is the name of the software to install.
+tap "koekeishiya/formulae"
 
-The optional `<VERSION>` is the version of the software to install, this is optional and can be used to specify the version of the software to install.
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+cask "raycast"
+mas "Amphetamine", id: 937984704
+npm "eslint"
+uv "pylint"
+```
 
-The optional `<DESCRIPTION>` is a short description of the software to install, this is optional and can be used to provide a short description of the software to install.
+To capture the current machine as a Brewfile, run `gaudi backup`.
+
+### Software: lists for other package managers
+
+Package managers Homebrew does not drive keep the list format: `<name>.apt.list.sh` (Debian/Ubuntu) and `<name>.gem.list.sh`.
 
 ```sh
 # @Name: Default
-# @List: brewList
-export brewList=(
-
-  # Core Modules
-  
-  "coreutils::with_default_names::GNU File, Shell, and Text utilities"
-  "autoconf@2.13::Automatic configure script builder"
-  "grep::GNU grep, egrep and fgrep"
-  ...
+# @List: aptList
+aptList=(
+  "build-essential"
+  "pkg-config::Manage compile and link flags for libraries"
 )
 ```
 
-### hooks
- - Pre hooks that are executed before the software lists are installed `pre.<SOFTWARETARGET>.hooks.sh` e.g. `pre.brew.hooks.sh`
- - Post hooks that are executed after the software lists are installed `post.<SOFTWARETARGET>.hooks.sh` e.g. `post.brew.hooks.sh`
+ - `@Name`: shown in the prompts.
+ - `@Description`: optional short description.
+ - `@List`: the name of the array variable that holds the entries.
+
+Each entry is `"<PACKAGE>::<DESCRIPTION>"`; the description is optional.
+
+### Hooks
+
+Hooks are shell scripts that Gaudi sources around the software steps. The file name decides when they run:
+
+| File name | Runs |
+| --- | --- |
+| `pre.bundle.hooks.sh` / `post.bundle.hooks.sh` | Before the first / after the last Brewfile |
+| `pre.bundle-<name>.hooks.sh` / `post.bundle-<name>.hooks.sh` | Around `<name>.Brewfile`, only if it was accepted |
+| `post.bundle-<name>.<topic>.hooks.sh` | Same, when one Brewfile needs several hooks (e.g. `post.bundle-core.asdf.hooks.sh`) |
+| `pre.apt.hooks.sh`, `post.gem.hooks.sh`, ... | Around the apt and gem lists |
+
+A hook that fails is reported at the end of the run; it does not stop the setup.
 
 ### Configs
 
