@@ -1,0 +1,10 @@
+# Files and directories that `gaudi backup` copies, one per line, relative to
+# your home directory. They are restored from the dotfiles/ directory of a
+# templates repository by `gaudi setup`.
+#
+# Do not list secrets (SSH keys, tokens) if this repository is public.
+#
+# .zshrc
+# .gitconfig
+# .config/kitty
+# Library/Preferences/com.googlecode.iterm2.plist
