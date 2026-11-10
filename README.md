@@ -12,7 +12,7 @@ Gaudi turns the chore of configuring a new machine into a breeze. Define your id
 
 Setting up a new machine can be a tedious, time-consuming process. Gaudi solves this by automating:
 
-- Software installation (brew, npm, mas, etc.)
+- Software installation ([Homebrew](https://brew.sh/) formulae and casks, [Mac App Store](https://github.com/mas-cli/mas) apps, npm, apt, etc.)
 - System preferences customization
 - Application setup
 - Configuration matching
@@ -23,13 +23,15 @@ To get started with Gaudi, follow the instructions in the [Gaudi README](https:/
 
 # The Templates
 
-There are three types of templates:
+There are five types of templates:
 
- - Software lists: These templates are used to install software on your machine.
- - Hooks: These templates are used to run code before or after the software lists are installed.
+ - Brewfiles: These templates declare the software [Homebrew](https://brew.sh/) installs on your machine.
+ - Software lists: These templates are used to install software with the package managers Homebrew does not drive.
+ - Hooks: These templates are used to run code before or after the Brewfiles and software lists are installed.
  - Configs: These templates are used to configure your machine.
+ - Dotfiles: `dotfiles.list` names the files `gaudi backup` copies out of your home directory.
 
-Files inside these folders are picked up automatically by Gaudi and executed during the installation process given you follow the correct naming conventions.
+Gaudi finds these files by name, wherever they are in the repository, and runs them during the setup given you follow the correct naming conventions. The `lists/`, `hooks/` and `configs/` folders here are only for order.
 
 ## Naming Conventions
 
@@ -70,7 +72,17 @@ To capture the current machine as a Brewfile, run `gaudi backup`.
 
 ### Software: lists for other package managers
 
-Package managers Homebrew does not drive keep the list format: `<name>.apt.list.sh` (Debian/Ubuntu) and `<name>.gem.list.sh`.
+Package managers Homebrew does not drive keep the list format, in files named `<name>.<manager>.list.sh`:
+
+| Manager | System | Example file name |
+| --- | --- | --- |
+| `apt` | Debian/Ubuntu | `default.apt.list.sh` |
+| `dnf` | Fedora | `default.dnf.list.sh` |
+| `pacman` | Arch | `default.pacman.list.sh` |
+| `zypper` | openSUSE | `default.zypper.list.sh` |
+| `gem` | Any system with Ruby | `default.gem.list.sh` |
+
+This repository ships an apt list (`lists/default.apt-get.sh`, an older spelling of the name that Gaudi still picks up) and a gem list (`lists/default.gem.list.sh`).
 
 ```sh
 # @Name: Default
@@ -87,6 +99,8 @@ aptList=(
 
 Each entry is `"<PACKAGE>::<DESCRIPTION>"`; the description is optional.
 
+The two files under `lists/custom/` (`asdf-plugins.list.sh` and `asdf-languages.list.sh`) are not installed by Gaudi itself: the `post.bundle-core.asdf.hooks.sh` hook reads them to add [asdf](https://asdf-vm.com/) plugins and language versions after `core.Brewfile`.
+
 ### Hooks
 
 Hooks are shell scripts that Gaudi sources around the software steps. The file name decides when they run:
@@ -95,16 +109,18 @@ Hooks are shell scripts that Gaudi sources around the software steps. The file n
 | --- | --- |
 | `pre.bundle.hooks.sh` / `post.bundle.hooks.sh` | Before the first / after the last Brewfile |
 | `pre.bundle-<name>.hooks.sh` / `post.bundle-<name>.hooks.sh` | Around `<name>.Brewfile`, only if it was accepted |
-| `post.bundle-<name>.<topic>.hooks.sh` | Same, when one Brewfile needs several hooks (e.g. `post.bundle-core.asdf.hooks.sh`) |
-| `pre.apt.hooks.sh`, `post.gem.hooks.sh`, ... | Around the apt and gem lists |
+| `pre.bundle-<name>.<topic>.hooks.sh` / `post.bundle-<name>.<topic>.hooks.sh` | Same, when one Brewfile needs several hooks (e.g. `post.bundle-core.asdf.hooks.sh`) |
+| `pre.apt.hooks.sh`, `post.gem.hooks.sh`, ... | Around the apt, dnf, pacman, zypper and gem lists |
 
 A hook that fails is reported at the end of the run; it does not stop the setup.
 
 ### Configs
 
-Configs are used to configure your machine. They are executed after the software lists are installed.
+Configs are used to configure your machine. They are executed after the software is installed.
 
-There are few additional attributes you can set on the config:
+A config is a file named `<name>.configs.<os>.sh`, where `<os>` is `osx`, `debian`, `fedora`, `arch` or `opensuse`, or `<name>.configs.sh` to apply on every system. All the configs in this repository are for macOS.
+
+Each config sets two things:
 
  ```sh
  _info="Disable automatic capitalization while typing"
@@ -113,17 +129,14 @@ function _command {
 }
 ```
 
- - `_info`: A short description of the config, this is used to describe the config in the logs.
- - `_command`: The command to execute, this is the command to execute to configure the machine.
-
+ - `_info`: A short description of the config, this is used to describe the config in the prompt.
+ - `_command`: The function Gaudi calls to configure the machine.
 
 ### Dotfiles
 
 `dotfiles.list` names the files and directories `gaudi backup` copies, one per line, relative to the home directory. Files placed under `dotfiles/` at the top of the repository are restored by `gaudi setup` with the same layout. Do not list secrets while the repository is public.
 
-### Other package managers
-
-Besides Brewfiles, lists are supported for `apt` (Debian/Ubuntu), `dnf` (Fedora) and `gem`: `<name>.apt.list.sh`, `<name>.dnf.list.sh`, `<name>.gem.list.sh`.
+The `dotfiles.list` in this repository only holds commented-out examples, and there is no `dotfiles/` directory: add your own in your copy of the templates.
 
 ## Checking the templates
 
@@ -132,6 +145,4 @@ gaudi check .
 gaudi check . --online
 ```
 
-`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it on every pull request and push; require its `templates check` check on `master` to block merging broken templates.
-
-Lists also exist for Arch (`<name>.pacman.list.sh`) and openSUSE (`<name>.zypper.list.sh`), and configs can target `arch` and `opensuse`.
+`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it, and [ShellCheck](https://www.shellcheck.net/) on the hooks, on every pull request, in the merge queue and on every push to `master`; require its `templates check` check on `master` to block merging broken templates.
