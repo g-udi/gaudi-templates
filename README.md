@@ -82,7 +82,7 @@ Package managers Homebrew does not drive keep the list format, in files named `<
 | `zypper` | openSUSE | `default.zypper.list.sh` |
 | `gem` | Any system with Ruby | `default.gem.list.sh` |
 
-This repository ships an apt list (`lists/default.apt-get.sh`, an older spelling of the name that Gaudi still picks up) and a gem list (`lists/default.gem.list.sh`).
+This repository ships an apt list (`lists/default.apt.list.sh`) and a gem list (`lists/default.gem.list.sh`).
 
 ```sh
 # @Name: Default
