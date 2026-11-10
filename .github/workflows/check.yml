@@ -23,15 +23,19 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 15
     steps:
+      # The templates and Gaudi are checked out side by side, so the checker
+      # only ever looks at the templates.
       - uses: actions/checkout@v4
+        with:
+          path: templates
       - name: Get Gaudi
         uses: actions/checkout@v4
         with:
           repository: g-udi/gaudi
-          path: .gaudi
+          path: gaudi
       - name: Check the templates
-        run: .gaudi/bin/gaudi check "$GITHUB_WORKSPACE"
+        run: gaudi/bin/gaudi check templates
       - name: ShellCheck the hooks
         run: |
           brew install shellcheck
-          find . -path ./.gaudi -prune -o -name '*.hooks.sh' -print0 | xargs -0 shellcheck -S warning
+          find templates -name '*.hooks.sh' -print0 | xargs -0 shellcheck -S warning
