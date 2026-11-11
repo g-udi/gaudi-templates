@@ -1,5 +1,6 @@
 # @Name: Default
 # @List: aptList
+# shellcheck disable=SC2034
 aptList=(
     # Core
     "build-essential"

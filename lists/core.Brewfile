@@ -6,8 +6,6 @@ tap "koekeishiya/formulae"
 # --- Core Modules ---
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Automatic configure script builder
-brew "autoconf@2.13"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Search tool like grep, but optimized for programmers https://beyondgrep.com/

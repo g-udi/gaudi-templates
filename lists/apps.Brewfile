@@ -23,8 +23,6 @@ cask "gpg-suite"
 cask "gcloud-cli"
 # iTerm2 is a replacement for Terminal and the successor to iTerm https://www.iterm2.com/
 cask "iterm2"
-# A terminal built on web technologies https://hyper.is
-cask "hyper"
 # Postman helps you be more efficient while working with APIs. Using Postman, you can construct complex HTTP requests quickly, organize them in collections,etc. https://www.getpostman.com/
 cask "postman"
 # Studio 3T, the most powerful MongoDB GUI and IDE available https://studio3t.com/
