@@ -1,8 +1,6 @@
 # @Name: npm globals
 # @Description: Global npm packages (needs node and npm on PATH)
 
-# --- Development ---
-
 # --- Test Runners, utils and debuggers ---
 # Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser https://mochajs.org/
 npm "mocha"
@@ -24,22 +22,16 @@ npm "lerna"
 npm "eslint"
 
 # --- Networks ---
-# A live secure tunnel redirect public requests to your own local server befind a NAT or firewall https://github.com/localtunnel/localtunnel
+# A live secure tunnel redirect public requests to your own local server behind a NAT or firewall https://github.com/localtunnel/localtunnel
 npm "localtunnel"
 # Vercel CLI (formerly now): deploy Node apps, Dockerfiles and static sites https://vercel.com/docs/cli
 npm "vercel"
 
 # --- Development Productivity ---
-# Find Out When Your Dependencies are Outdated https://david-dm.org/
-npm "david"
 # Tool to summarise all code annotation like TODO or FIXME https://github.com/ahmadassaf/code-notes
 npm "code-notes"
 # A git log to CHANGELOG.md tool https://github.com/nodejs/changelog-maker
 npm "changelog-maker"
-# Replacement for `npm version` with automatic CHANGELOG generation https://github.com/conventional-changelog/standard-version
-npm "standard-version"
-# semantic-release automates the whole package release workflow https://github.com/semantic-release/semantic-release
-npm "semantic-release-cli"
 # The commitizen command line utility https://github.com/commitizen/cz-cli
 npm "commitizen"
 # cz-conventional-changelog is a plugin that describes the desired commit format https://github.com/commitizen/cz-conventional-changelog

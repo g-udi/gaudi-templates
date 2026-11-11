@@ -2,11 +2,21 @@
 # shellcheck shell=bash
 # shellcheck disable=SC2034
 
-_info="Change default terminal shell to bash"
+_info="Change the default Terminal shell to the Homebrew bash"
 function _command {
-    chip_type=$(sysctl -n machdep.cpu.brand_string)
-    if [[ "$chip_type" == *Intel* ]]; then 
-        defaults write com.apple.Terminal Shell "/usr/local/bin/bash"
-    else defaults write com.apple.Terminal Shell "/opt/homebrew/bin/bash"
+    local shell_path=""
+
+    if ! command -v brew >/dev/null 2>&1; then
+        printf "%b\n" "${YELLOW:-}[WARN]${NC:-} Homebrew was not found: leaving the Terminal shell unchanged"
+        return 0
     fi
+
+    shell_path="$(brew --prefix)/bin/bash"
+    # Terminal cannot open a window when its shell does not exist
+    if [[ ! -x "$shell_path" ]]; then
+        printf "%b\n" "${YELLOW:-}[WARN]${NC:-} $shell_path is not installed (brew install bash): leaving the Terminal shell unchanged"
+        return 0
+    fi
+
+    defaults write com.apple.Terminal Shell -string "$shell_path"
 }
