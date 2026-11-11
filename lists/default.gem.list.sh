@@ -1,5 +1,6 @@
 # @Name: Default
 # @List: gemList
+# shellcheck disable=SC2034
 gemList=(
     "bundler::The best way to manage a Ruby application's gems https://bundler.io/"
     "travis::Travis CI Client https://github.com/travis-ci/travis.rb" 

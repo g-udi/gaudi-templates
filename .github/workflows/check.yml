@@ -35,7 +35,9 @@ jobs:
           path: gaudi
       - name: Check the templates
         run: gaudi/bin/gaudi check templates
-      - name: ShellCheck the hooks
+      # Hooks, configs and lists are all sourced by Gaudi's bash, so every
+      # shell file is linted as bash, not only the hooks.
+      - name: ShellCheck the shell files
         run: |
           brew install shellcheck
-          find templates -name '*.hooks.sh' -print0 | xargs -0 shellcheck -S warning
+          find templates -name '*.sh' -not -path 'templates/.git/*' -print0 | xargs -0 shellcheck -s bash -S warning

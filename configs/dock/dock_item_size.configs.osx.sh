@@ -1,6 +1,4 @@
- defaults write com.apple.dock tilesize -int 36
-
- #!/usr/bin/env bash
+#!/usr/bin/env bash
 # shellcheck shell=bash
 # shellcheck disable=SC2034
 
