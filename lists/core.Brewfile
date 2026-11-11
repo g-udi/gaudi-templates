@@ -46,8 +46,6 @@ brew "libyaml"
 brew "gnupg"
 
 # --- Development ---
-# Extendable version manager with support for Ruby, Node.js, Elixir, Erlang & more https://github.com/asdf-vm/asdf
-brew "asdf"
 # Static analysis and lint tool, for bash scripts https://www.shellcheck.net/
 brew "shellcheck"
 # JavaScript package manager https://yarnpkg.com/en/

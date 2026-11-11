@@ -99,8 +99,6 @@ aptList=(
 
 Each entry is `"<PACKAGE>::<DESCRIPTION>"`; the description is optional.
 
-`lists/custom/asdf-languages.list.sh` is not installed by Gaudi itself: the `post.bundle-core.asdf.hooks.sh` hook reads it after `core.Brewfile` and installs each language version with [asdf](https://asdf-vm.com/). The asdf plugin of a language is the first word of its entry.
-
 ### Hooks
 
 Hooks are shell scripts that Gaudi sources around the software steps. The file name decides when they run:
@@ -109,7 +107,7 @@ Hooks are shell scripts that Gaudi sources around the software steps. The file n
 | --- | --- |
 | `pre.bundle.hooks.sh` / `post.bundle.hooks.sh` | Before the first / after the last Brewfile |
 | `pre.bundle-<name>.hooks.sh` / `post.bundle-<name>.hooks.sh` | Around `<name>.Brewfile`, only if it was accepted |
-| `pre.bundle-<name>.<topic>.hooks.sh` / `post.bundle-<name>.<topic>.hooks.sh` | Same, when one Brewfile needs several hooks (e.g. `post.bundle-core.asdf.hooks.sh`) |
+| `pre.bundle-<name>.<topic>.hooks.sh` / `post.bundle-<name>.<topic>.hooks.sh` | Same, when one Brewfile needs several hooks (e.g. `post.bundle-core.services.hooks.sh`) |
 | `pre.apt.hooks.sh`, `post.gem.hooks.sh`, ... | Around the apt, dnf, pacman, zypper and gem lists |
 
 A hook that fails is reported at the end of the run; it does not stop the setup.
@@ -122,7 +120,6 @@ The hooks in this repository:
 | --- | --- |
 | `hooks/bundle/pre.bundle-appstore.hooks.sh` | Reminds you to sign in to the App Store before `appstore.Brewfile` |
 | `hooks/bundle/pre.bundle-npm.hooks.sh` | Warns when `npm` is not on the PATH before `npm.Brewfile` |
-| `hooks/bundle/post.bundle-core.asdf.hooks.sh` | After `core.Brewfile`: offers to install the languages in `lists/custom/asdf-languages.list.sh` with [asdf](https://asdf-vm.com/) |
 | `hooks/bundle/post.bundle-languages.hooks.sh` | After `languages.Brewfile`: offers to install the latest Node.js LTS with [nvm](https://github.com/nvm-sh/nvm) and Python 3 with [pyenv](https://github.com/pyenv/pyenv) |
 | `hooks/pre.apt.hooks.sh` | Before the apt lists: offers to add the [Docker](https://docs.docker.com/engine/install/) apt repository (for `docker-ce`) and to run `apt-get update` |
 | `hooks/pre.gem.hooks.sh` | Before the gem lists: offers to update RubyGems |
