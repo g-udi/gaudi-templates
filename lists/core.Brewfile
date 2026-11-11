@@ -1,7 +1,7 @@
 # @Name: Core tools
 # @Description: Command-line tools and libraries installed with Homebrew
 
-tap "koekeishiya/formulae"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
 
 # --- Core Modules ---
 # GNU File, Shell, and Text utilities
@@ -54,12 +54,10 @@ brew "shellcheck"
 brew "yarn"
 # Compose is a tool for defining and running multi-container Docker applications https://docs.docker.com/compose/
 brew "docker-compose"
-# Ctags generates an index (or tag) file of language objects found in source files that allows these items to be quickly and easily located by a text editor or other utility http://ctags.sourceforge.net/
-brew "ctags"
 # Minikube is a tool that makes it easy to run Kubernetes locally https://github.com/kubernetes/minikube
 brew "minikube"
 
-# --- Git speific addons ---
+# --- Git specific addons ---
 # GIT utilities -- repo summary, repl, changelog population, author commit percentages and more https://github.com/tj/git-extras
 brew "git-extras"
 # git-crypt enables transparent encryption and decryption of files in a git repository https://www.agwa.name/projects/git-crypt/
@@ -84,14 +82,12 @@ brew "github-keygen"
 brew "github-markdown-toc"
 # Commandline app to create and edit releases on Github and upload artifacts https://github.com/aktau/github-release
 brew "github-release"
-# hub is a command-line wrapper for git that makes you better at GitHub https://hub.github.com/
-brew "hub"
 
 # --- Utilities ---
 # Terminal multiplexer https://tmux.github.io/
 brew "tmux"
 # Clipper is a macOS launch agent — or Linux daemon — that runs in the background providing a service that exposes the local clipboard to tmux sessions and other processes running both locally and remotely https://github.com/wincent/clipper
-brew "clipper"
+brew "clipper", restart_service: :changed
 # A modern and intuitive terminal-based text editor https://micro-editor.github.io
 brew "micro"
 # Terminal multiplexer with VT100/ANSI terminal emulation
@@ -149,9 +145,9 @@ brew "peco"
 # Launch calc and you can start typing equations https://github.com/lcn2/calc
 brew "calc"
 # A tiling window manager for macOS based on binary space partitioning https://github.com/koekeishiya/yabai
-brew "koekeishiya/formulae/yabai"
+brew "asmvik/formulae/yabai"
 # Simple hotkey daemon for macOS https://github.com/koekeishiya/skhd
-brew "koekeishiya/formulae/skhd"
+brew "asmvik/formulae/skhd"
 
 # --- Network ---
 # A reverse proxy / load balancer that's easy, dynamic, automatic, fast, full-featured, open source, production proven, provides metrics, and integrates with every major cluster technologies https://traefik.io/

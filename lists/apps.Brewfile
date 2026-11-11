@@ -1,9 +1,6 @@
 # @Name: Applications
 # @Description: Desktop applications installed as Homebrew casks
 
-# Link casks in /Applications rather than ~/Applications
-cask_args appdir: "/Applications"
-
 # --- Internet Apps ---
 # Google Chrome is a freeware web browser developed by Google https://www.google.com/intl/en_uk/chrome/
 cask "google-chrome"

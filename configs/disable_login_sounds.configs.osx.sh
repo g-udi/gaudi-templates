@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 # shellcheck disable=SC2034
 
-_info="Disable the sound effects on boot"
+_info="Mute the startup chime on boot"
 function _command {
-    sudo nvram SystemAudioVolume=" "
+    sudo nvram StartupMute=%01
 }

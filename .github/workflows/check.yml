@@ -9,17 +9,22 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Packages are removed and deprecated upstream without any change here, so
+  # the online check runs on a timer, not on pull requests.
+  schedule:
+    - cron: "17 6 * * 1"
 
 permissions:
   contents: read
 
 concurrency:
-  group: check-${{ github.event.pull_request.number || github.ref }}
+  group: check-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   check:
     name: templates check
+    if: github.event_name != 'schedule'
     runs-on: macos-latest
     timeout-minutes: 15
     steps:
@@ -41,3 +46,22 @@ jobs:
         run: |
           brew install shellcheck
           find templates -name '*.sh' -not -path 'templates/.git/*' -print0 | xargs -0 shellcheck -s bash -S warning
+
+  # Asks Homebrew whether every package in the Brewfiles still exists. Kept out
+  # of the pull request check so that an upstream removal never blocks a merge.
+  online:
+    name: templates check (online)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: templates
+      - name: Get Gaudi
+        uses: actions/checkout@v4
+        with:
+          repository: g-udi/gaudi
+          path: gaudi
+      - name: Check the templates against Homebrew
+        run: gaudi/bin/gaudi check templates --online

@@ -1,7 +1,8 @@
 # @Name: ASDF Programming Languages
 # @Description: Languages installed with asdf. "latest" follows the newest release; pin a version when a project needs one.
 # @List: asdfLanguagesList
-export asdfLanguagesList=(
+# shellcheck disable=SC2034
+asdfLanguagesList=(
     "java latest:temurin-21::Eclipse Temurin build of the JDK, latest 21 LTS"
     "ruby latest::Ruby, a dynamic language focused on simplicity and productivity"
     "terraform latest::Infrastructure as code"
