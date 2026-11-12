@@ -14,6 +14,8 @@ cask "1password"
 cask "cleanmymac"
 # Everything you need to get started with secure communication and encrypting files in one simple package
 cask "gpg-suite"
+# SQL powered operating system instrumentation and analytics https://osquery.io/
+cask "osquery"
 
 # --- Development ---
 # The Cloud SDK is a set of tools for Cloud Platform. It contains gcloud, gsutil, and bq, which you can use to access Google Compute Engine https://cloud.google.com/sdk/
@@ -56,7 +58,7 @@ cask "spotify"
 cask "steam"
 
 # --- Productivity ---
-# Fantastical is the the powerful yet friendly! calendar and reminders app https://flexibits.com/
+# Fantastical is the powerful yet friendly! calendar and reminders app https://flexibits.com/
 cask "fantastical"
 # Raycast is a blazingly fast, totally extendable launcher. It lets you complete tasks, calculate, share common links, and much more
 cask "raycast"
@@ -88,13 +90,13 @@ cask "latexit"
 cask "mactex"
 
 # --- Menu and Sidebar applications ---
-# Bartender 3 lets you organize your menu bar icons, by hiding them, rearranging them, show hidden items with a click or keyboard shortcut and have icons show when they update https://www.macbartender.com/
+# Bartender lets you organize your menu bar icons, by hiding them, rearranging them, show hidden items with a click or keyboard shortcut and have icons show when they update https://www.macbartender.com/
 cask "bartender"
 
 # --- Utilities ---
 # BetterZip: the most advanced zip and rar archiver for file compression, encryption. BetterZip makes it easy to work with zip, rar, 7-zip, tar, and xz https://macitbetter.com/
 cask "betterzip"
-# Alfred is a productivity application for Mac OS X, which boosts your efficiency with hotkeys, keywords and text expansion https://www.alfredapp.com/
+# Alfred is a productivity application for macOS, which boosts your efficiency with hotkeys, keywords and text expansion https://www.alfredapp.com/
 cask "alfred"
 # BetterTouchTool is a great, feature packed app that allows you to customize various input devices on your Mac https://folivora.ai/
 cask "bettertouchtool"
@@ -112,9 +114,5 @@ cask "hammerspoon"
 # --- QuickLook plugins ---
 # Preview iOS / macOS app and provision information https://github.com/ealeksandrov/ProvisionQL
 cask "provisionql"
-# Preview Markdown files https://github.com/toland/qlmarkdown
+# Preview Markdown files https://github.com/sbarex/QLMarkdown
 cask "qlmarkdown"
-
-# --- Moved from formulae (now a cask) ---
-# SQL powered operating system instrumentation and analytics https://osquery.io/
-cask "osquery"

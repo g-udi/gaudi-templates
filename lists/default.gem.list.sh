@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# shellcheck shell=bash
 # @Name: Default
 # @List: gemList
 # shellcheck disable=SC2034

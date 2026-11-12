@@ -48,7 +48,7 @@ One Brewfile can hold Homebrew taps, formulae and casks, Mac App Store apps, VS 
 | `lists/apps.Brewfile` | Desktop applications (casks) |
 | `lists/appstore.Brewfile` | Mac App Store apps |
 | `lists/npm.Brewfile` | Global npm packages |
-| `lists/python.Brewfile` | Python tools, installed with [uv](https://docs.astral.sh/uv/) |
+| `lists/python.Brewfile` | Python tools: Homebrew formulae, and tools installed with [uv](https://docs.astral.sh/uv/) |
 
 Two optional comment lines at the top name and describe the file in the prompts:
 
@@ -119,7 +119,7 @@ The hooks in this repository:
 | Hook | What it does |
 | --- | --- |
 | `hooks/bundle/pre.bundle-appstore.hooks.sh` | Reminds you to sign in to the App Store before `appstore.Brewfile` |
-| `hooks/bundle/pre.bundle-npm.hooks.sh` | Warns when `npm` is not on the PATH before `npm.Brewfile` |
+| `hooks/bundle/pre.bundle-npm.hooks.sh` | Before `npm.Brewfile`: says that Homebrew will install its `node` formula when `npm` is not on the PATH |
 | `hooks/bundle/post.bundle-languages.hooks.sh` | After `languages.Brewfile`: offers to install the latest Node.js LTS with [nvm](https://github.com/nvm-sh/nvm) and Python 3 with [pyenv](https://github.com/pyenv/pyenv) |
 | `hooks/pre.apt.hooks.sh` | Before the apt lists: offers to add the [Docker](https://docs.docker.com/engine/install/) apt repository (for `docker-ce`) and to run `apt-get update` |
 | `hooks/pre.gem.hooks.sh` | Before the gem lists: offers to update RubyGems |
@@ -142,7 +142,9 @@ function _command {
  - `_info`: A short description of the config, this is used to describe the config in the prompt.
  - `_command`: The function Gaudi calls to configure the machine.
 
-Nothing may run outside `_command`: Gaudi sources the file before it asks. A config that lowers a security setting says so in its `_info` (see `configs/disable_open_application_dialogue.configs.osx.sh`, which turns off download quarantine).
+Nothing may run outside `_command`: Gaudi sources the file before it asks. A config that lowers a security setting says so in its `_info` (see `configs/disable_open_application_dialogue.configs.osx.sh`, which turns off download quarantine), and so does one that needs a permission (`configs/accessibility/use_scroll_gesture.configs.osx.sh` needs Full Disk Access for your terminal).
+
+Gaudi asks about the configs in the sorted order of their paths. Dock, Finder and screenshot settings only take effect once those processes restart, so the last config, `configs/zz_restart_dock_finder.configs.osx.sh`, offers to restart the Dock, Finder and SystemUIServer; decline it and the settings apply at the next login. Keep its `zz_` prefix so that it stays last.
 
 ### Dotfiles
 
@@ -157,4 +159,8 @@ gaudi check .
 gaudi check . --online
 ```
 
-`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it, and [ShellCheck](https://www.shellcheck.net/) on every shell file, on every pull request, in the merge queue and on every push to `main`; require its `templates check` check on `main` to block merging broken templates. Once a week the same workflow runs `gaudi check --online`, which also asks Homebrew whether every package still exists.
+`gaudi check` reports hooks and configs whose names mean they never run, Brewfiles Homebrew cannot read, and lists without their array. A [GitHub Actions workflow](.github/workflows/check.yml) runs it (on macOS, for the Brewfiles), and [ShellCheck](https://www.shellcheck.net/) on every shell file (on Linux), on every pull request, in the merge queue and on every push to `main`; require its `templates check` and `shellcheck` checks on `main` to block merging broken templates. Once a week the same workflow runs `gaudi check --online`, which also asks Homebrew whether every package still exists.
+
+## License
+
+[MIT](LICENSE)

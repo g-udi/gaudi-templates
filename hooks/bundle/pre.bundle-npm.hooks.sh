@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck shell=bash
 
-echo "Checking if npm is installed 🤔"
-if ! type npm &> /dev/null ; then
-    printf '%b\n' "The required ${YELLOW:-}npm${NC:-} command was not found 😱 .."
-    printf '%b\n' "this might be due to the fact that you need to resource your .bashrc/.bash_profile or .zshrc\nPlease do that and then relaunch the script\n"
+# Runs before npm.Brewfile.
+# brew bundle installs Homebrew's node formula by itself when npm is missing,
+# so this only says what is about to happen.
+if ! type npm &> /dev/null; then
+    printf '%b\n' "${YELLOW:-}npm${NC:-} was not found: Homebrew will install its ${YELLOW:-}node${NC:-} formula to install these packages." \
+        "To use a Node.js from nvm instead, install it first (nvm install --lts) and run the setup again."
 fi

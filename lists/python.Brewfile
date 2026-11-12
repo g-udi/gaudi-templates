@@ -1,6 +1,7 @@
 # @Name: Python tools
-# @Description: Python command-line tools, isolated with uv instead of pip --user
+# @Description: Python command-line tools: Homebrew formulae, and uv tools kept apart from the system Python
 
+# Extremely fast Python package installer and resolver, written in Rust https://docs.astral.sh/uv/
 brew "uv"
 
 # Official Amazon AWS command-line interface https://docs.aws.amazon.com/cli

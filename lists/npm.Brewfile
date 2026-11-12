@@ -1,5 +1,5 @@
 # @Name: npm globals
-# @Description: Global npm packages (needs node and npm on PATH)
+# @Description: Global npm packages (Homebrew installs its node formula when npm is missing)
 
 # --- Test Runners, utils and debuggers ---
 # Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser https://mochajs.org/

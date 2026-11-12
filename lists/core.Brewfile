@@ -64,7 +64,7 @@ brew "git-crypt"
 brew "git-fresh"
 # Compute various size metrics for a Git repository, flagging those that might cause problems https://github.com/github/git-sizer
 brew "git-sizer"
-# Generic, high-level Git workflow support https://github.com/Originate/git-town
+# Generic, high-level Git workflow support https://www.git-town.com/
 brew "git-town"
 # Git extension for versioning large files https://github.com/git-lfs/git-lfs
 brew "git-lfs"
@@ -104,7 +104,7 @@ brew "chrome-cli"
 brew "emacs"
 # Colorize logfiles and command output https://github.com/garabik/grc
 brew "grc"
-# Lightweight and flexible command-line JSON processor https://stedolan.github.io/jq/
+# Lightweight and flexible command-line JSON processor https://jqlang.github.io/jq/
 brew "jq"
 # Magnificent app which corrects your previous console command https://github.com/nvbn/thefuck
 brew "thefuck"
@@ -124,7 +124,7 @@ brew "imagemagick"
 brew "m-cli"
 # Keep your application settings in sync https://github.com/lra/mackup
 brew "mackup"
-# Vim - the text editor - for Mac OS X http://macvim-dev.github.io/macvim
+# Vim - the text editor - for macOS https://macvim.org
 brew "macvim"
 # 📦 Mac App Store command line interface https://github.com/mas-cli/mas
 brew "mas"
@@ -142,9 +142,9 @@ brew "fzf"
 brew "peco"
 # Launch calc and you can start typing equations https://github.com/lcn2/calc
 brew "calc"
-# A tiling window manager for macOS based on binary space partitioning https://github.com/koekeishiya/yabai
+# A tiling window manager for macOS based on binary space partitioning https://github.com/asmvik/yabai
 brew "asmvik/formulae/yabai"
-# Simple hotkey daemon for macOS https://github.com/koekeishiya/skhd
+# Simple hotkey daemon for macOS https://github.com/asmvik/skhd
 brew "asmvik/formulae/skhd"
 
 # --- Network ---
