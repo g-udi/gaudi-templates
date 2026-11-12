@@ -30,22 +30,29 @@ jobs:
     steps:
       # The templates and Gaudi are checked out side by side, so the checker
       # only ever looks at the templates.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           path: templates
       - name: Get Gaudi
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           repository: g-udi/gaudi
           path: gaudi
+      # macOS is only needed here: Homebrew has to read the Brewfiles.
       - name: Check the templates
         run: gaudi/bin/gaudi check templates
-      # Hooks, configs and lists are all sourced by Gaudi's bash, so every
-      # shell file is linted as bash, not only the hooks.
+
+  # Hooks, configs and lists are all sourced by Gaudi's bash, so every shell
+  # file is linted as bash. ShellCheck is preinstalled on the Linux runners.
+  shellcheck:
+    name: shellcheck
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
       - name: ShellCheck the shell files
-        run: |
-          brew install shellcheck
-          find templates -name '*.sh' -not -path 'templates/.git/*' -print0 | xargs -0 shellcheck -s bash -S warning
+        run: find . -name '*.sh' -not -path './.git/*' -print0 | xargs -0 shellcheck -s bash -S warning
 
   # Asks Homebrew whether every package in the Brewfiles still exists. Kept out
   # of the pull request check so that an upstream removal never blocks a merge.
@@ -55,11 +62,11 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           path: templates
       - name: Get Gaudi
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           repository: g-udi/gaudi
           path: gaudi

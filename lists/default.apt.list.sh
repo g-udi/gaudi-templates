@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# shellcheck shell=bash
 # @Name: Default
 # @List: aptList
 # shellcheck disable=SC2034
